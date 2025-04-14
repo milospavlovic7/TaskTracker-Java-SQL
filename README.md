@@ -1,4 +1,4 @@
-# 📋 TaskTracker – Desktop App for Managing Tasks and Teams
+# 📋 TaskTracker – Desktop App for Managing Tasks and Employees
 
 TaskTracker is a Java-based desktop application designed for streamlined task and workforce management within a company. It features a **Swing GUI**, **multi-threaded socket server**, **MySQL database**, and a clear separation of responsibilities using **MVC architecture**.
 
