@@ -51,17 +51,16 @@ CREATE TABLE `posao` (
   PRIMARY KEY (`posaoID`),
   KEY `menadzerID` (`menadzerID`),
   CONSTRAINT `posao_ibfk_1` FOREIGN KEY (`menadzerID`) REFERENCES `menadzer` (`menadzerID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `posao` */
 
 insert  into `posao`(`posaoID`,`nazivPosla`,`opisPosla`,`datumKreiranjaPosla`,`menadzerID`) values 
-(1,'Razvoj aplikacije','Razvijanje nove aplikacije za klijenta','2025-03-01',1),
-(2,'Dizajn sajta','Dizajn početne stranice za projekat','2025-03-02',2),
-(3,'Optimizacija sistema','Poboljšanje performansi servera','2025-03-03',3),
-(4,'Planiranje projekta','Priprema planova za buduće projekte','2025-03-04',4),
-(5,'Grabuljanje','Grabuljama lisce skupljam','2025-04-05',5),
-(9,'Parafraziranje','Usluzivanje programa bar ja tako mislim','2025-04-05',5);
+(11,'Snimanje reklame za aplikaciju','Produkcija TV reklame za mobilnu aplikaciju','2025-04-15',5),
+(12,'Snimanje podcasta','Tehnička produkcija za nedeljni podcast epizoda','2025-04-15',5),
+(13,'Snimanje edukativnog kursa','Online kurs o osvetljenju i snimanju','2025-04-15',5),
+(14,'Snimanje kratkog filma','Umetnički kratki film za filmski festival','2025-04-15',5),
+(15,'Intervju sa sportistima','Serijal intervjua sa poznatim sportistima za YouTube','2025-04-15',5);
 
 /*Table structure for table `pripadnostzadatkaposlu` */
 
@@ -81,19 +80,22 @@ CREATE TABLE `pripadnostzadatkaposlu` (
 /*Data for the table `pripadnostzadatkaposlu` */
 
 insert  into `pripadnostzadatkaposlu`(`posaoID`,`zadatakID`,`datumPocetkaPrip`,`datumZavrsetkaPrip`) values 
-(1,2,'2025-04-10',NULL),
-(1,6,'2025-04-10',NULL),
-(2,2,'2025-03-02','2025-03-20'),
-(2,4,'2025-04-10',NULL),
-(3,4,'2025-04-10',NULL),
-(4,3,'2025-04-10',NULL),
-(4,4,'2025-03-04','2025-04-01'),
-(4,6,'2025-04-10',NULL),
-(4,7,'2025-04-10',NULL),
-(5,3,'2025-04-10',NULL),
-(5,6,'2025-04-10',NULL),
-(9,1,'2025-04-10',NULL),
-(9,3,'2025-04-14',NULL);
+(11,11,'2025-04-15',NULL),
+(11,12,'2025-04-15',NULL),
+(11,17,'2025-04-15',NULL),
+(12,11,'2025-04-15',NULL),
+(12,12,'2025-04-15',NULL),
+(12,15,'2025-04-15',NULL),
+(12,16,'2025-04-15',NULL),
+(13,11,'2025-04-15',NULL),
+(13,14,'2025-04-15',NULL),
+(13,15,'2025-04-15',NULL),
+(14,13,'2025-04-15',NULL),
+(14,14,'2025-04-15',NULL),
+(14,15,'2025-04-15',NULL),
+(14,17,'2025-04-15',NULL),
+(15,12,'2025-04-15',NULL),
+(15,16,'2025-04-15',NULL);
 
 /*Table structure for table `zadatak` */
 
@@ -109,17 +111,18 @@ CREATE TABLE `zadatak` (
   PRIMARY KEY (`zadatakID`),
   KEY `menadzerID` (`menadzerID`),
   CONSTRAINT `zadatak_ibfk_1` FOREIGN KEY (`menadzerID`) REFERENCES `menadzer` (`menadzerID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `zadatak` */
 
 insert  into `zadatak`(`zadatakID`,`nazivZadatka`,`opisZadatka`,`datumKreiranjaZadatka`,`statusZadatka`,`menadzerID`) values 
-(1,'Dizajn početne stranice','Dizajn početne stranice za aplikaciju','2025-03-01','ZAVRSEN',1),
-(2,'Optimizacija baza podataka','Optimizacija baza podataka za brži rad bravoo','2025-03-02','NEDOVRSEN',2),
-(3,'Testiranje aplikacije','Testiranje novih funkcionalnosti u aplikaciji 2','2025-03-03','ZAVRSEN',3),
-(4,'Priprema dokumentacije','Priprema tehničke dokumentacije za projekat','2025-03-04','U_TOKU',4),
-(6,'Pranje sudova','Operi sudje','2025-04-07','ZAVRSEN',5),
-(7,'Tandracak','nema','2025-04-10','NEDOVRSEN',5);
+(11,'Kupovina kamere Canon R5','Nabavka kamere potrebne za više produkcija','2025-04-15','NEDOVRSEN',5),
+(12,'Zakup studija StudioCentar','Rezervacija prostora za snimanje','2025-04-15','NEDOVRSEN',5),
+(13,'Montaža video materijala','Finalna montaža snimaka','2025-04-15','NEDOVRSEN',5),
+(14,'Nabavka LED svetala','Svetlosna oprema za snimanja','2025-04-15','NEDOVRSEN',5),
+(15,'Testiranje mikrofona Rode NTG3','Provera audio opreme pre snimanja','2025-04-15','NEDOVRSEN',5),
+(16,'Dizajniranje univerzalnog introa','Intro sekvenca koja se koristi za više video formata','2025-04-15','NEDOVRSEN',5),
+(17,'Potpisivanje ugovora sa glumcem','Angažovanje glumca koji glumi u više snimanja','2025-04-15','NEDOVRSEN',5);
 
 /*Table structure for table `zaposleni` */
 
@@ -144,11 +147,7 @@ insert  into `zaposleni`(`zaposleniID`,`ime`,`prezime`,`telefon`,`email`,`lozink
 (1,'Petar','Petrović','123456789','petar.petrovic@email.com','lozinka111',1),
 (2,'Maja','Majić','987654321','maja.majic@email.com','lozinka222',2),
 (3,'Ivan','Ivanić','112233445','ivan.ivanic@email.com','lozinka333',3),
-(4,'Jelena','Jelenić','556677889','jelena.jelenic@email.com','lozinka444',4),
-(5,'Moca','Pavlovic','01555715500000','moca.pavlovic@email.com','password',5),
-(6,'Zoki','Sumadinac','0677152999','zoki.sumadinac@gmail.com','password',5),
-(9,'Pistac','Kerina','06515528888','pistac@mail.kor','987',5),
-(10,'Brat Vasilije','Perovic','123456','b@g.s','bob',5);
+(4,'Jelena','Jelenić','556677889','jelena.jelenic@email.com','lozinka444',4);
 
 /*Table structure for table `zaposlenje` */
 
@@ -168,23 +167,15 @@ CREATE TABLE `zaposlenje` (
 /*Data for the table `zaposlenje` */
 
 insert  into `zaposlenje`(`zaposleniID`,`posaoID`,`datumPocetkaZap`,`datumZavrsetkaZap`) values 
-(1,4,'2025-04-08',NULL),
-(1,9,'2025-04-08',NULL),
-(2,1,'2025-04-08',NULL),
-(2,2,'2025-03-02','2025-06-02'),
-(3,1,'2025-04-08',NULL),
-(3,3,'2025-03-03','2025-06-03'),
-(3,4,'2025-04-08',NULL),
-(3,5,'2025-04-10',NULL),
-(4,2,'2025-04-08',NULL),
-(5,1,'2025-04-08',NULL),
-(5,5,'2025-04-14',NULL),
-(6,2,'2025-04-10',NULL),
-(6,3,'2025-04-14',NULL),
-(6,9,'2025-04-08',NULL),
-(9,2,'2025-04-10',NULL),
-(10,4,'2025-04-10',NULL),
-(10,9,'2025-04-10',NULL);
+(1,13,'2025-04-15',NULL),
+(1,14,'2025-04-15',NULL),
+(2,11,'2025-04-15',NULL),
+(2,12,'2025-04-15',NULL),
+(2,13,'2025-04-15',NULL),
+(3,11,'2025-04-15',NULL),
+(3,12,'2025-04-15',NULL),
+(3,15,'2025-04-15',NULL),
+(4,12,'2025-04-15',NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
